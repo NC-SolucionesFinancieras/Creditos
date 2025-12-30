@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Empresa - Créditos de Libranza</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+          <div class="logo">
+    <a href="index.html">
+        <img src="IMAGES/logonc.png" alt="Logo de Nataly Cortes" class="logo-img">
+    </a>
+</div>
+        
+        <button class="menu-toggle" aria-label="Abrir menú de navegación">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#pensionados">Pensionados y/o Jubilados</a></li>
+                <li><a href="#educadores">Educadores</a></li>
+                <li><a href="formulario.html" class="btn-menu-action">Activa tu Crédito</a></li>
+                <li><a href="#policias">FFMM y Policía</a></li>
+                <li><a href="#funcionarios">Funcionario Público</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="hero">
+        <div class="hero-content">
+            <h2>El mejor crédito de libranza para tu futuro</h2>
+            <p>Tasas de interés competitivas, plazos flexibles y un proceso 100% digital. ¡Sin intermediarios!</p>
+            <a href="formulario.html" class="btn">Solicita tu crédito ahora</a>
+        </div>
+    </main>
+
+    <section id="why-choose-us" class="section why-choose-us">
+        <h3>¿Por qué elegirnos?</h3>
+        <div class="features-container">
+            <div class="feature-card">
+                <i class="fas fa-hand-holding-usd icon"></i>
+                <h4>Desembolso Gratis</h4>
+                <p>Tu dinero llega sin costos ocultos ni comisiones extras. ¡Lo que pides, es lo que recibes!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-file-invoice-dollar icon"></i>
+                <h4>Crédito para Reportados</h4>
+                <p>Evaluamos tu capacidad, no solo tu historial. ¡Tenemos opciones para ti!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-money-check-alt icon"></i>
+                <h4>Tasas Competitivas</h4>
+                <p>Nuestras tasas están entre las mejores del mercado. ¡Ahorra en cada cuota!</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line icon"></i>
+                <h4>Plazos Flexibles</h4>
+                <p>Hasta 120 meses para pagar, adaptándonos a tus necesidades y flujo de caja.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-laptop-code icon"></i>
+                <h4>Proceso 100% Digital</h4>
+                <p>Solicita, envía documentos y firma desde la comodidad de tu casa.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-user-friends icon"></i>
+                <h4>Asesoría Personalizada</h4>
+                <p>Un experto te acompaña en cada paso para resolver tus dudas.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pensionados" class="section client-type">
+        <h3>Pensionados y/o Jubilados</h3>
+        <p>Soluciones financieras diseñadas para pensionados.</p>
+    </section>
+    <section id="educadores" class="section client-type">
+        <h3>Educadores</h3>
+        <p>Créditos especiales para docentes y personal administrativo del sector educativo.</p>
+    </section>
+    <section id="policias" class="section client-type">
+        <h3>FFMM y Policía</h3>
+        <p>Beneficios exclusivos para miembros de la fuerza pública.</p>
+    </section>
+    <section id="funcionarios" class="section client-type">
+        <h3>Funcionario Público</h3>
+        <p>Opciones de crédito flexibles para empleados del sector público.</p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 NC Soluciones Financieras. Todos los derechos reservados.</p>
+        <div class="social-links">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/573193725932" target="_blank" class="whatsapp-btn-footer"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+    <div class="whatsapp-container">
+    <div class="whatsapp-card" id="whatsappCard">
+        <div class="whatsapp-card-header">
+            <i class="fab fa-whatsapp"></i>
+            <div class="header-text">
+                <strong>¡Hola! ¿Necesitas ayuda?</strong>
+                <p>Solicite su Asesoría 100% Gratuita por WhatsApp 👇</p>
+            </div>
+        </div>
+        <div class="whatsapp-card-body">
+            <p class="response-time">El equipo suele responder en unos minutos.</p>
+            <a href="https://wa.me/573193275932?text=Hola,%20necesito%20asesoría%20para%20un%20crédito." target="_blank" class="advisor-link">
+                <div class="advisor-info">
+                    <img src="IMAGES/NC.png" alt="Asesor" class="advisor-img"> <div class="advisor-name">
+                        <strong>Asesora - Nataly Cortes</strong>
+                        <span>NC Soluciones Financieras</span>
+                    </div>
+                </div>
+                <i class="fab fa-whatsapp wa-icon-green"></i>
+            </a>
+        </div>
+        <button class="close-wa" id="closeWa">×</button>
+    </div>
+
+    <button class="whatsapp-button" id="openWa">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+</div>
+</body>
+</html>
