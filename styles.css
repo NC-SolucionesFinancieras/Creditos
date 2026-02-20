@@ -378,6 +378,7 @@ a {
     justify-content: center;
     transition: transform 0.3s ease;
 }
+
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
@@ -1150,4 +1151,88 @@ a {
     .nav-menu img, .nav-menu .logo {
         display: none !important;
     }
+}
+
+/* Coloca esto al final de tu styles.css */
+.whatsapp-btn, .whatsapp-float, #whatsapp-button {
+    z-index: 10005 !important; /* Lo pone por encima del menú blanco */
+    position: fixed !important;
+    pointer-events: auto !important; /* Permite que el clic funcione */
+}
+
+/* Esto asegura que la tarjeta con tu foto también se vea al frente */
+.whatsapp-card, .whatsapp-popup, .wa-card {
+    z-index: 10010 !important; 
+    position: fixed !important;
+}
+
+/* =======================================================
+   REPARACIÓN DEFINITIVA: MENÚ VS WHATSAPP
+   ======================================================= */
+
+@media (max-width: 1100px) {
+    /* 1. El menú solo existe para el mouse cuando tiene la clase .active */
+    .nav-menu {
+        visibility: hidden; /* Lo hace invisible e intocable */
+        pointer-events: none; /* Los clics pasan a través de él */
+        right: -100% !important;
+        position: fixed !important;
+        z-index: 9999 !important;
+    }
+
+    .nav-menu.active {
+        visibility: visible; /* Aparece */
+        pointer-events: auto; /* Se puede tocar */
+        right: 0 !important;
+    }
+
+    /* 2. Forzamos que el botón de WhatsApp sea el REY de la página */
+    /* Aquí usamos selectores muy fuertes para que nada lo tape */
+    .whatsapp-btn, 
+    .whatsapp-float, 
+    #whatsapp-button,
+    [class*="whatsapp"] { 
+        display: block !important;
+        visibility: visible !important;
+        z-index: 20000 !important; /* Un número exageradamente alto */
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+}
+
+/* =======================================================
+   POSICIONAMIENTO CORRECTO DE LA TARJETA
+   ======================================================= */
+.whatsapp-card {
+    position: fixed !important;
+    bottom: 90px !important; /* La separa del suelo para que no tape el botón */
+    right: 20px !important;  /* La pega al borde derecho */
+    width: 320px !important; /* Ancho estándar de tarjeta */
+    display: none;           /* Se controla con el JS */
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    z-index: 20002 !important; /* Por encima de todo */
+    overflow: hidden;
+    transition: all 0.3s ease; /* Para que abra suave */
+}
+
+/* El contenedor del botón también debe estar bien ubicado */
+.whatsapp-container {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 20001 !important;
+}
+
+.whatsapp-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #25d366;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }

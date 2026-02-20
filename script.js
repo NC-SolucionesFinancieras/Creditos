@@ -1,28 +1,49 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Usamos el selector de clase que pusimos en el CSS (.menu-toggle)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navMenu = document.getElementById('navMenu');
+    // --- LÓGICA DEL MENÚ HAMBURGUESA ---
+    const menuToggle = document.querySelector('.menu-toggle') || document.getElementById('openBtn');
+    const navMenu = document.getElementById('navMenu') || document.querySelector('.nav-menu');
 
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
-            // 1. Abrimos o cerramos el menú deslizable
             navMenu.classList.toggle('active');
+            // Cambia el icono de ☰ a ✕
+            menuToggle.innerHTML = navMenu.classList.contains('active') ? '✕' : '☰';
+        });
 
-            // 2. Cambiamos el icono del MISMO botón (así no se enciman)
-            if (navMenu.classList.contains('active')) {
-                menuToggle.innerHTML = '✕'; // Cambia a X cuando abre
-            } else {
-                menuToggle.innerHTML = '☰'; // Vuelve a las 3 rayitas cuando cierra
-            }
+        // Cerrar al hacer clic en un enlace
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.innerHTML = '☰';
+            });
         });
     }
 
-    // Cerrar automáticamente al hacer clic en un enlace (para navegar)
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '☰'; // Siempre volvemos a las rayitas al cerrar
+    // --- LÓGICA DE WHATSAPP (Basada en tu HTML) ---
+    const openWa = document.getElementById('openWa');
+    const closeWa = document.getElementById('closeWa');
+    const whatsappCard = document.getElementById('whatsappCard');
+
+    if (openWa && whatsappCard) {
+        // Abrir tarjeta
+        openWa.addEventListener('click', (e) => {
+            e.stopPropagation(); // Evita que otros clics interfieran
+            whatsappCard.style.display = 'block';
         });
-    });
+
+        // Cerrar tarjeta con la X
+        if (closeWa) {
+            closeWa.addEventListener('click', () => {
+                whatsappCard.style.display = 'none';
+            });
+        }
+
+        // Cerrar si hacen clic fuera de la tarjeta
+        document.addEventListener('click', (event) => {
+            if (!whatsappCard.contains(event.target) && !openWa.contains(event.target)) {
+                whatsappCard.style.display = 'none';
+            }
+        });
+    }
 });
